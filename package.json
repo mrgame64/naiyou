@@ -11,9 +11,12 @@
 	},
 	"dependencies": {
 		"express": "4.*",
+		"express-session": "*",
+		"cookie-parser": "*",
+		"body-parser": "*",
 		"mongoose": "*",
 		"bcrypt": "*",
 		"hbs": "*",
-		"moment": "*"	
+		"moment": "*"
 	}
 }
