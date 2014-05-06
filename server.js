@@ -10,7 +10,7 @@ GLOBAL.production = false;
 //Handlebars
 GLOBAL.hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials');
-require('./lib/hbsUtils');
+//require('./lib/hbsUtils');
 	
 //ExpressJS
 GLOBAL.express = require('express');
