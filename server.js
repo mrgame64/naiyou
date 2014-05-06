@@ -10,16 +10,15 @@ GLOBAL.production = false;
 //Handlebars
 GLOBAL.hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials');
-//require('./lib/hbsUtils');
 	
 //ExpressJS
 GLOBAL.express = require('express');
 GLOBAL.app = express();
 
-app.use(require('body-parser'));
-app.use(require('cookie-parser'));
+app.use(require('body-parser')());
+app.use(require('cookie-parser')());
 app.use(require('express-session')({ secret: 'ニャー、猫です！(=^・・^=)', cookie: { maxAge: 3600000 }}));
-GLOBAL.routes = require("./routes/router.js");
+require("./routes/router.js");
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 

@@ -1,3 +1,5 @@
 exports.main = function(req, res){
-	res.render('layout.html', { 'production': production });
+	console.log("Got a call");
+	res.render('layout', { 'production': production });
+	console.log("Call answered");
 };
