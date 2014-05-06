@@ -5,6 +5,8 @@ var dbHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
 	dbPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 3200,
 	dbName = 'node';
 	
+GLOBAL.production = false;
+	
 //Handlebars
 GLOBAL.hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials');
