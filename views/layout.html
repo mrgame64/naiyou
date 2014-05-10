@@ -32,10 +32,20 @@
       </div>
     </div>
     <div class="container">
-      {{#each posts}}
-        
-      {{/each}}
-
+      <div class="page-header">
+        <h1>{{siteTitle}} <small>by {{siteAuthor}}</small></h1>
+      </div>
+      <ul class="media-list">
+        {{#each posts}}
+        <li class="media">
+          <a class="pull-left" href="{{postUrl}}"><img src="{{postImg}}" alt="Thumbnail for {{postTitle}}"></a>
+          <div class="media-body">
+            <h4 class="media-heading">{{postTitle}}</h4>
+            <p>{{postExcerpt}}</p>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
       <footer>
         <p>© {{siteAuthor}}</p>
       </footer>
