@@ -6,10 +6,10 @@ var dbHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
 	dbName = 'node';
 	
 GLOBAL.production = false;
-	
-//Handlebars
-GLOBAL.hbs = require('hbs');
-hbs.registerPartials(__dirname + '/views/partials');
+
+//Utils
+GLOBAL.fs = require('fs');
+GLOBAL.moment = require('moment');
 	
 //ExpressJS
 GLOBAL.express = require('express');
@@ -20,7 +20,11 @@ app.use(require('cookie-parser')());
 app.use(require('express-session')({ secret: 'ニャー、猫です！(=^・・^=)', cookie: { maxAge: 3600000 }}));
 require("./routes/router.js");
 app.set('view engine', 'html');
-app.engine('html', hbs.__express);
+app.engine('html', require('hogan-express'));
+if(production)
+	app.enable('view cache');
+else
+	app.disable('view cache');
 
 //MongoDB
 GLOBAL.mongoose = require('mongoose');
@@ -33,11 +37,8 @@ mongoose.connect('mongodb://'+dbHost+':'+dbPort+'/'+dbName, function (err, res){
 	console.log ('Connected to MongoDB database '+dbName+' at '+dbHost+':'+dbPort);
 });
 
-//Moment
-GLOBAL.moment = require('moment');
-
 //Start server
 setTimeout(function() {
 	GLOBAL.server = app.listen(port, ipAddress);
-	console.log('Webserver started on at %s:%s', ipAddress, port);
+	console.log('Webserver started at %s:%s', ipAddress, port);
 }, 1000);

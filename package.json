@@ -16,7 +16,7 @@
 		"body-parser": "*",
 		"mongoose": "*",
 		"bcrypt": "*",
-		"hbs": "*",
+		"hogan-express": "*",
 		"moment": "*"
 	}
 }

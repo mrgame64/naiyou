@@ -8,11 +8,8 @@
     <meta name="description" content="{{siteDescription}}">
     <meta name="author" content="{{siteAuthor}}">
     <title>{{siteTitle}}</title>
-    {{#if production}}
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/bootstrap.min.css" rel="stylesheet">
-	{{else}}
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	{{/if}}
+    {{#production}}<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/bootstrap.min.css" rel="stylesheet">{{/production}}
+	{{^production}}<link href="/css/bootstrap.min.css" rel="stylesheet">{{/production}}
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -36,26 +33,23 @@
         <h1>{{siteTitle}} <small>by {{siteAuthor}}</small></h1>
       </div>
       <ul class="media-list">
-        {{#each posts}}
+        {{#posts}}
         <li class="media">
           <a class="pull-left" href="{{postUrl}}"><img src="{{postImg}}" alt="Thumbnail for {{postTitle}}"></a>
           <div class="media-body">
-            <h4 class="media-heading">{{postTitle}}</h4>
-            <p>{{postExcerpt}}</p>
+            <h4 class="media-heading">{{title}}</h4>
+            <p>{{body}}</p>
           </div>
         </li>
-        {{/each}}
+        {{/posts}}
       </ul>
       <footer>
         <p>© {{siteAuthor}}</p>
       </footer>
     </div>
-    {{#if production}}
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    {{else}}
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    {{/if}}
+    {{#production}}<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>{{/production}}
+    {{^production}}<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>{{/production}}
   </body>
 </html>
