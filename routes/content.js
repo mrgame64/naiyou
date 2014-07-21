@@ -8,3 +8,9 @@ GLOBAL.PostSchema = new Schema({
     creationDate: { type: Number, required: true },
     editDate:     { type: Number, required: true }
 });
+
+GLOBAL.Post = mongoose.model('Post', PostSchema);
+
+exports.api = function(){
+    
+};
