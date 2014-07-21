@@ -17,6 +17,7 @@
 		"mongoose": "*",
 		"bcrypt": "*",
 		"hogan-express": "*",
-		"moment": "*"
+		"moment": "*",
+		"passport-http": "*"
 	}
 }
