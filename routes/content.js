@@ -14,3 +14,19 @@ GLOBAL.EntrySchema = new Schema({
 });
 
 GLOBAL.Entry = mongoose.model('Entry', EntrySchema);
+
+GLOBAL.CommentSchema = new Schema({
+    userId:         { type: ObjectId, required: true },
+    date:           { type: Number, required: true },
+    entryId:        { type: ObjectId, required: true },
+    inReply:        { type: ObjectId },
+    
+    approved:       { type: Boolean, required: true },
+    removed:        { type: Boolean, required: true },
+    rmvBy:          { type: ObjectId },
+    rmvDate:        { type: Number },
+    
+    content:        { type: String, required: true, trim: true }
+});
+
+GLOBAL.Comment = mongoose.model('Comment', CommentSchema);
